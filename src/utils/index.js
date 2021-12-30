@@ -40,16 +40,15 @@ export function getTimeframe(timeWindow) {
 export function getPoolLink(token0Address, token1Address = null, remove = false) {
   if (!token1Address) {
     return (
-      `https://pizzaswap.com/#/` +
+      `https://pizaswap.com/#/` +
       (remove ? `remove` : `add`) +
-      `/v2/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address}/${'ETH'}`
+      `/${token0Address === '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c' ? 'BNB' : token0Address}/${'BNB'}`
     )
   } else {
     return (
-      `https://pizzaswap.com/#/` +
+      `https://pizaswap.com/#/` +
       (remove ? `remove` : `add`) +
-      `/v2/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address}/${
-        token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token1Address
+      `/${token0Address === '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c' ? 'BNB' : token0Address}/${token1Address === '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c' ? 'BNB' : token1Address
       }`
     )
   }
@@ -57,20 +56,19 @@ export function getPoolLink(token0Address, token1Address = null, remove = false)
 
 export function getSwapLink(token0Address, token1Address = null) {
   if (!token1Address) {
-    return `https://pizzaswap.com/#/swap?inputCurrency=${token0Address}`
+    return `https://pizaswap.com/#/swap?inputCurrency=${token0Address}`
   } else {
-    return `https://pizzaswap.com/#/swap?inputCurrency=${
-      token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address
-    }&outputCurrency=${token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token1Address}`
+    return `https://pizaswap.com/#/swap?inputCurrency=${token0Address === '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c' ? 'BNB' : token0Address
+      }&outputCurrency=${token1Address === '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c' ? 'BNB' : token1Address}`
   }
 }
 
 export function getMiningPoolLink(token0Address) {
-  return `https://pizzaswap.com/#/uni/ETH/${token0Address}`
+  return `https://pizaswap.com/#/uni/ETH/${token0Address}`
 }
 
 export function getUniswapAppLink(linkVariable) {
-  let baseUniswapUrl = 'https://pizzaswap.com/#/uni'
+  let baseUniswapUrl = 'https://pizaswap.com/#/uni'
   if (!linkVariable) {
     return baseUniswapUrl
   }
@@ -303,10 +301,10 @@ export const setThemeColor = (theme) => document.documentElement.style.setProper
 export const Big = (number) => new BigNumber(number)
 
 export const urls = {
-  showTransaction: (tx) => `https://etherscan.io/tx/${tx}/`,
-  showAddress: (address) => `https://www.etherscan.io/address/${address}/`,
-  showToken: (address) => `https://www.etherscan.io/token/${address}/`,
-  showBlock: (block) => `https://etherscan.io/block/${block}/`,
+  showTransaction: (tx) => `https://bscscan.com/tx/${tx}/`,
+  showAddress: (address) => `https://www.bscscan.com/address/${address}/`,
+  showToken: (address) => `https://www.bscscan.com/token/${address}/`,
+  showBlock: (block) => `https://bscscan.com/block/${block}/`,
 }
 
 export const formatTime = (unix) => {
