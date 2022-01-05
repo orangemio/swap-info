@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { isAddress } from '../../utils/index.js'
 import EthereumLogo from '../../assets/eth.png'
+import pizzalogo from '../../assets/logo.png'
 
 const BAD_IMAGES = {}
 
@@ -68,6 +69,24 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
           alt=""
         />
       </StyledEthereumLogo>
+    )
+  }
+
+  if (address?.toLowerCase() === '0xfc646d0b564bf191b3d3adf2b620a792e485e6da') {
+    return (
+      <Inline>
+        <Image
+          {...rest}
+          alt={''}
+          src={pizzalogo}
+          size={size}
+          onError={(event) => {
+            BAD_IMAGES[address] = true
+            setError(true)
+            event.preventDefault()
+          }}
+        />
+      </Inline>
     )
   }
 
